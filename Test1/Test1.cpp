@@ -5,7 +5,10 @@
 #include <string>
 
 using namespace std;
-int ActionChoose() {
+
+void QuadraticEquation() {
+	}
+static int ActionChoose() {
 	string case_num_input;
 	int case_num;
 
