@@ -5,41 +5,48 @@
 #include <string>
 
 using namespace std;
-void InputVar() {
-	string ageInput;
-	int age;
+int ActionChoose() {
+	string case_num_input;
+	int case_num;
 
-	cout << "How old are you: ";
-	cin >> ageInput;
+	cout << "Choose your case: ";
+	cin >> case_num_input;
 
-	age = stoi(ageInput);
+	case_num = stoi(case_num_input);
 	try
 	{
-		age = stoi(ageInput);
+		case_num = stoi(case_num_input);
 	}
 	catch (invalid_argument)
 	{
 		// можно вводить только числа
 		cout << "Only numbers are allowed! \n";
-		age = -1;
+		case_num = -1;
 	}
 	catch (...)
 	{
 		//Если будет выброшено какое-то исключение, которое не обработано выше, то говорим, что возникла неизвестная ошибка
 		cout << "Unknown error! \n";
-		age = -1;
+		case_num = -1;
 		
 	}
-	if (age > 0)
+	if (case_num > 0 && case_num < 6) { return case_num; }
+	else { cout << "Error.Try again \n"; return -1; }
+}
+void ActionScene() {
+	cout << "FIRST PRACTICE\n1 - Quadratic equation\n ";
+	switch (ActionChoose())
 	{
-		cout << "You are " << age << " years old. \n";
+
+
+	case 1:
+		//Решение квадратного уравнения
+		cout << "ax^2 + bx + c = 0\n";
+
+		break;
 	}
-	else
-	{
-		cout << "Try again! \n";
-	}
+}
+int main() {
+	ActionScene();
 }
 
-int main() {
-	InputVar();
-}
